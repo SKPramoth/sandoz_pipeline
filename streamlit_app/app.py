@@ -4,6 +4,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 from enum import Enum
+import os
+from pathlib import Path
 
 # Page configuration
 st.set_page_config(
@@ -481,7 +483,12 @@ header_col1, header_col2, header_col3 = st.columns([0.2, 0.6, 0.2])
 
 with header_col1:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.image("Sandoz.png", use_container_width =True)
+    # Load image with proper path handling for Streamlit Cloud
+    logo_path = Path(__file__).parent / "Sandoz.png"
+    if logo_path.exists():
+        st.image(str(logo_path), use_container_width=True)
+    else:
+        st.write("📦")  # Fallback icon if image not found
 
 with header_col2:
     st.markdown("""
