@@ -1,0 +1,8 @@
+/* App styles - Tailwind handles all styling */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+}
+
